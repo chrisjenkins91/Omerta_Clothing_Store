@@ -1,0 +1,129 @@
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.topBarNav a{
+    margin-left: 2rem;
+    color: white;
+    font-size: small;
+    font-weight: 200;
+    word-spacing: 10px;
+    text-decoration: none;
+}
+
+.topBarNav{
+    background-color: #053BA6;
+}
+
+.header{
+    background-color: #035AA6;
+    color: white;
+}
+
+.logo h4, .logo h5{
+    font-size: smaller;
+    font-weight: 300;
+}
+
+.logo i{
+    color: white;
+}
+
+
+.categoryLinks p{
+    margin-left: 1rem;
+    color: white;
+    font-size: smaller;
+    font-weight: 200;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.heroBackground{
+    /*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=035aa6&c2=d932d0&gt=l&gd=dtl
+*/
+background: #035AA6;
+background: linear-gradient(135deg, #035AA6, #D932D0);
+}
+
+.heroButton button{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: #D932CE;
+}
+
+.body{
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=035aa6&c2=d932d0&gt=l&gd=dbl
+*/
+background: #035AA6;
+background: linear-gradient(45deg, #035AA6, #D932D0);
+
+}
+
+.mailList{
+/*
+* Created with https://www.css-gradient.com
+* Gradient link: https://www.css-gradient.com/?c1=035aa6&c2=d932d0&gt=l&gd=dtt
+*/
+background: #035AA6;
+background: linear-gradient(180deg, #035AA6, #D932D0);
+}
+
+.item p, .item small{
+    margin-bottom: 1rem;
+    font-size: small;
+}
+
+.item h4{
+    font-size:  0.8rem;
+}
+.item h5{
+    font-size: medium;
+}
+
+.card h5{
+    font-size: medium;
+}
+
+.card-body{
+    background-color: #F25430;
+    box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3), inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
+}
+
+
+
+.card-body button{
+    position: absolute;
+    bottom: 0;
+    
+}
+
+.checkoutHeader{
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.checkout-menu {
+    position: fixed;
+    top: 10%;
+    right: 1%; /* Adjust to position the menu on the right */
+    z-index: 1000; /* Ensure it appears above the main content */
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    max-height: 400px;
+    overflow-y: auto; /* Allow scrolling if the content exceeds the height */
+}
+
+
