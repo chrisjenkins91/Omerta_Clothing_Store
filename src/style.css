@@ -1,129 +1,191 @@
-.header{
+/* Sticky header with shadow for better visibility on scroll */
+.header {
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #035AA6; /* Header background color */
+    color: white; /* Text color for the header */
 }
 
-.topBarNav a{
-    margin-left: 2rem;
-    color: white;
-    font-size: small;
-    font-weight: 200;
-    word-spacing: 10px;
-    text-decoration: none;
+/* Navigation links in the top bar */
+.topBarNav {
+    background-color: #053BA6; /* Top bar background color */
 }
 
-.topBarNav{
-    background-color: #053BA6;
+.topBarNav a {
+    margin-left: 2rem; /* Space between links */
+    color: white; /* Link color */
+    font-size: small; /* Small font size */
+    font-weight: 200; /* Light font weight */
+    word-spacing: 10px; /* Spacing between words */
+    text-decoration: none; /* No underline on links */
 }
 
-.header{
-    background-color: #035AA6;
-    color: white;
+/* Logo text styles */
+.logo h4, .logo h5 {
+    font-size: smaller; /* Smaller font size for logo text */
+    font-weight: 300; /* Light font weight */
 }
 
-.logo h4, .logo h5{
-    font-size: smaller;
-    font-weight: 300;
+.logo i {
+    color: white; /* Icon color for logo */
 }
 
-.logo i{
-    color: white;
+/* Category link styles */
+.categoryLinks p {
+    margin-left: 1rem; /* Space on the left */
+    color: white; /* Text color */
+    font-size: smaller; /* Smaller font size */
+    font-weight: 200; /* Light font weight */
+    text-decoration: none; /* No underline */
+    cursor: pointer; /* Pointer cursor */
 }
 
-
-.categoryLinks p{
-    margin-left: 1rem;
-    color: white;
-    font-size: smaller;
-    font-weight: 200;
-    text-decoration: none;
-    cursor: pointer;
+/* Hero background gradient */
+.heroBackground {
+    background: #035AA6; /* Fallback color */
+    background: linear-gradient(135deg, #035AA6, #D932D0); /* Gradient */
 }
 
-.heroBackground{
-    /*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=035aa6&c2=d932d0&gt=l&gd=dtl
-*/
-background: #035AA6;
-background: linear-gradient(135deg, #035AA6, #D932D0);
+/* Hero button styles */
+.heroButton button {
+    margin-top: 2rem; /* Space above the button */
+    margin-bottom: 2rem; /* Space below the button */
+    padding-left: 40px; /* Padding on the left */
+    padding-right: 40px; /* Padding on the right */
+    background-color: #D932CE; /* Button background color */
 }
 
-.heroButton button{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color: #D932CE;
+/* Body background gradient */
+.body {
+    background: #035AA6; /* Fallback color */
+    background: linear-gradient(45deg, #035AA6, #D932D0); /* Gradient */
 }
 
-.body{
-/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=035aa6&c2=d932d0&gt=l&gd=dbl
-*/
-background: #035AA6;
-background: linear-gradient(45deg, #035AA6, #D932D0);
-
+/* Category title background */
+.category h5 {
+    font-size: small; /* Smaller font size */
+    background-color: #D932CE; /* Background color */
 }
 
-.mailList{
-/*
-* Created with https://www.css-gradient.com
-* Gradient link: https://www.css-gradient.com/?c1=035aa6&c2=d932d0&gt=l&gd=dtt
-*/
-background: #035AA6;
-background: linear-gradient(180deg, #035AA6, #D932D0);
+/* Title font size */
+.title h1 {
+    font-size: 4rem; /* Large font size for titles */
 }
 
-.item p, .item small{
-    margin-bottom: 1rem;
-    font-size: small;
+/* Mail list background gradient */
+.mailList {
+    background: #035AA6; /* Fallback color */
+    background: linear-gradient(180deg, #035AA6, #D932D0); /* Gradient */
 }
 
-.item h4{
-    font-size:  0.8rem;
-}
-.item h5{
-    font-size: medium;
+.mailList h1 {
+    font-size: 4rem; /* Large font size for titles */
 }
 
-.card h5{
-    font-size: medium;
+/* Item text styles */
+.item p, .item small {
+    margin-bottom: 1rem; /* Space below items */
+    font-size: small; /* Smaller font size */
 }
 
-.card-body{
-    background-color: #F25430;
-    box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25), 0px 30px 60px -30px rgba(0, 0, 0, 0.3), inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35);
+.item h4 {
+    font-size: 1.2rem; /* Slightly larger font size */
 }
 
-
-
-.card-body button{
-    position: absolute;
-    bottom: 0;
-    
+.item h5 {
+    font-size: medium; /* Medium font size */
 }
 
+/* Product price font size */
+.productPrice h5 {
+    font-size: x-large; /* Extra large font size */
+}
+
+/* Card body styling */
+.card-body {
+    background-color: #0BC4D9; /* Card background color */
+    box-shadow: 0px 50px 100px -20px rgba(50, 50, 93, 0.25),
+                0px 30px 60px -30px rgba(0, 0, 0, 0.3),
+                inset 0px -2px 6px 0px rgba(10, 37, 64, 0.35); /* Shadow effects */
+}
+
+.card-body button {
+    position: absolute; /* Fix button position */
+    bottom: 0; /* Align at the bottom */
+}
+
+/* Sticky checkout header with shadow */
 .checkoutHeader{
-    position: sticky;
     top: 0;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.checkoutHeader h2 {
+    position: sticky; /* Stays at the top */
+    z-index: 1000; /* Ensure it stays above other elements */
+}
+
+/* Checkout menu styles */
 .checkout-menu {
-    position: fixed;
-    top: 10%;
-    right: 1%; /* Adjust to position the menu on the right */
-    z-index: 1000; /* Ensure it appears above the main content */
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    max-height: 400px;
-    overflow-y: auto; /* Allow scrolling if the content exceeds the height */
+    font-weight: 300;
+    position: fixed; /* Fix menu position */
+    top: 12%; /* Offset from top */
+    right: 1%; /* Align to the right */
+    z-index: 1000; /* Ensure it appears above content */
+    background: #053BA6; /* Background color */
+    border: 1px solid #ddd; /* Border styling */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; /* Shadow effects */
+    max-height: 400px; /* Limit height */
+    overflow-y: auto; /* Scrollable if content exceeds height */
 }
 
+.checkout-menu p, .checkout-menu h2, .item-details p{
+    color: white;
+}
 
+.item-actions button{
+    border: 1px solid black;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+}
+
+.closeButton button{
+    background-color: #0BC4D9;
+}
+
+.removeButton button{
+    border: 1px solid black;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+}
+
+/* Card image styles */
+.card-img-top {
+    min-height: 100%; /* Ensure image covers full height */
+}
+
+/* Button container styles */
+.buttonContainer button {
+    color: white; /* Button text color */
+    background-color: #053BA6; /* Button background color */
+}
+
+/* Footer styles */
+.footer {
+    background-color: #053BA6; /* Footer background color */
+}
+
+.submitButton button{
+    color: white;
+    background-color: #035AA6;
+}
+
+/* Carousel image styles */
+.carousel-inner img {
+    max-height: 500px; /* Limit image height */
+    object-fit: contain; /* Maintain image aspect ratio */
+}

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import brand from '../img/Ceege Logo PNG.png'
+import brand from '../img/[removal.ai]_53a79df7-682d-4f4d-843b-246a591774ab-ologo.png'
 
-function Header({cart, removeItem, decreaseQuantity, searchQuery, setSearchQuery, increaseQuantity, handleCategory}){
+function Header({cart, removeItem, decreaseQuantity, searchQuery, setSearchQuery, increaseQuantity, handleCategory, resetCategory}){
     
     const [showSearchBar, setShowSearchBar] = useState(false);
     // To manage if the checkout menu is showing or not
@@ -25,7 +25,9 @@ function Header({cart, removeItem, decreaseQuantity, searchQuery, setSearchQuery
         <div className="header row align-items-center">
             <TopBarLink />
             <Logo />
-            <CategoryLinks handleCategory={handleCategory} />
+            <CategoryLinks 
+            handleCategory={handleCategory}
+            resetCategory={resetCategory} />
             <CartIcons
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -58,10 +60,10 @@ function TopBarLink(){
                     <a href="#">Home</a>
                 </li>
                 <li>
-                    <a href="#">Shop</a>
+                    <a href="#shop">Shop</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#contact">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -73,9 +75,9 @@ function Logo(){
     return(
         <div className="logo col-sm-12 col-md-2 col-lg-3 col-xl-3 d-flex justify-content-center justify-content-md-start">
             <a href="#" className="navbar-brand d-flex align-items-center">
-                <img src={brand} alt="Logo Image" width={50} />
-                <div className="brand-text ms-0">
-                    <h4>Omerta</h4>
+                <img src={brand} alt="Logo Image" width={80} className="" />
+                <div className="brand-text text-white m-0">
+                    <h4 className="m-0">Omerta</h4>
                     <h5>Luxury <span>Boutique</span></h5>
                 </div>
             </a>
@@ -83,25 +85,25 @@ function Logo(){
     )
 }
 
-function CategoryLinks({handleCategory}){
-    const categories = ["Outerwear", "Pants", "T-Shirts", "Shoes", "Accessories"]
+function CategoryLinks({handleCategory, resetCategory}){
+    const categories = ["All", "OuterWear", "Pants", "T-Shirt", "Shoes", "Accessories"]
 
     return(
         <div className="logo d-flex justify-content-center col-sm-12 col-md-8 col-lg-7 col-xl-7 categoryLinks text-nowrap ">
-            {categories.map((category, index) => (
+        {categories.map((category, index) => (
           <button 
-          key={index} 
-          className="btn btn-sm text-light mx-1 my-1" 
-          onClick={() => handleCategory(category)}>
+            key={index} 
+            className="btn btn-sm text-light mx-1 my-1" 
+            onClick={() => handleCategory(category)}>
             {category}
           </button>
         ))}
-        <button className="btn btn-sm mx-1 my-1 text-light" onClick={() => handleCategory("")}>Reset</button>
+        
         </div>
     )
 }
 
-function CartIcons({toggleCheckoutMenu, cart, toggleSearchBar, showSearchBar, searchQuery, handleSearchChange}){
+function CartIcons({toggleCheckoutMenu, cart, toggleSearchBar, showSearchBar, searchQuery, handleSearchChange, handleCategory}){
 
     return(
         <div className="logo col-sm-12 col-md-2 col-lg-2 col-xl-2 d-flex justify-content-center justify-content-md-end">
@@ -147,12 +149,14 @@ function SearchBar({searchQuery, handleSearchChange}){
     )
 }
 
-function ShoppingBag({toggleCheckoutMenu}){
-    
+function ShoppingBag({toggleCheckoutMenu, cart}){
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+
     return(
-        <div className="shopIcon">
+        <div className="d-flex align-items-start shopIcon">
             <button className="btn btn-sm" onClick={toggleCheckoutMenu}>
                 <i className="fas fa-shopping-basket fa-md"></i>
+                {totalItems > 0 && <span className="cart-count text-light ms-1">{totalItems}</span>}
             </button>
         </div>
     )
@@ -162,10 +166,10 @@ function CheckoutMenu({ cart, toggleCheckoutMenu, removeItem, decreaseQuantity, 
     const totalCost = cart.reduce((sum, item) => sum + item.cost, 0);
   
     return (
-    <div className="d-flex justify-content-center justify-content-md-end align-items-center align-items-md-start">
-        <div className="checkout-menu bg-light border rounded text-dark col-sm-6 col-md-6 col-lg-4 col-xl-4 p-3 m-3 mt-5">
+    <div className="d-flex justify-content-center justify-content-md-end align-items-center align-items-md-start align-items-sm-end">
+        <div className="checkout-menu border rounded text-dark col-sm-6 col-md-6 col-lg-4 col-xl-4 p-3 m-3 mt-5">
             <div className="checkoutHeader col-12">
-                <h2 className="border-bottom border-2 border-dark">Checkout</h2>
+                <h2 className="border-bottom border-2">Checkout</h2>
             </div>
             {cart.length > 0 ? (
             cart.map((item, index) => (
@@ -174,21 +178,24 @@ function CheckoutMenu({ cart, toggleCheckoutMenu, removeItem, decreaseQuantity, 
                         <p className="fw-bold">{item.name}</p>
                         <p>{item.quantity} - ${item.cost.toFixed(2)}</p>
                     </div>
-                    <div className="item-actions col-md-7 d-flex justify-content-start">
+                    <div className="item-actions col-md-5 d-flex justify-content-start">
                         <button className="btn btn-sm btn-warning me-2" onClick={() => decreaseQuantity(item.name, item.cost / item.quantity)}>-</button>
                         <button className="btn btn-sm btn-warning me-2"
                         onClick={() => increaseQuantity(item.name, item.cost / item.quantity)}>+</button>
-                        <button className="btn btn-sm btn-danger me-2" onClick={() => removeItem(item.name)}>Remove</button>
+                        
+                    </div>
+                    <div className="removeButton col-md-2">
+                        <button className="btn btn-sm btn-danger me-2" onClick={() => removeItem(item.name)}>X</button>
                     </div>
                 </div>
             ))
             ) : (
             <p>Your cart is empty!</p>
             )}
-            <h4 className="border-top border-2 border-dark">Total: ${totalCost.toFixed(2)}</h4>
-            <button className="btn btn-sm btn-dark mb-3" onClick={toggleCheckoutMenu}>
-            Close
-            </button>
+            <h4 className="border-top border-2 border-light text-light">Total: ${totalCost.toFixed(2)}</h4>
+            <div className="closeButton">
+                <button className="btn btn-sm btn-dark mb-3" onClick={toggleCheckoutMenu}>Close</button>
+            </div>
         </div>
     </div>
     );
