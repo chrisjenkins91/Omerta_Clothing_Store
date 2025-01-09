@@ -78,7 +78,7 @@ function Logo(){
                 <img src={brand} alt="Logo Image" width={80} className="" />
                 <div className="brand-text text-white m-0">
                     <h4 className="m-0">Omerta</h4>
-                    <h5>Luxury <span>Boutique</span></h5>
+                    <h5>Streetwear <span>Boutique</span></h5>
                 </div>
             </a>
         </div>
